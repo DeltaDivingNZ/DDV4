@@ -3,13 +3,7 @@
 @tailwind utilities;
 
 body {
-  background-color: #f8f9fa;
-  color: #111111;
   font-family: 'Inter', sans-serif;
-}
-a {
-  transition: color 0.3s;
-}
-a:hover {
-  color: #f97316;
+  background-color: #F9FAFB;
+  color: #111827;
 }
