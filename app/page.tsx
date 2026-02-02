@@ -1,17 +1,5 @@
 import Hero from "./components/Hero";
-import Services from "./components/Services";
-import About from "./components/About";
-import Testimonials from "./components/Testimonials";
-import BookingForm from "./components/BookingForm";
 
 export default function Home() {
-  return (
-    <>
-      <Hero />
-      <Services />
-      <About />
-      <Testimonials />
-      <BookingForm />
-    </>
-  );
+  return <Hero />;
 }
