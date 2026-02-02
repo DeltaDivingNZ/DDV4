@@ -1,16 +1,15 @@
 export default function Hero() {
   return (
-    <section className="relative bg-cover bg-center h-screen flex items-center justify-center" style={{ backgroundImage: "url('/hero-bg.jpg')" }}>
-      <div className="absolute inset-0 bg-gradient-to-r from-delta-blue/80 to-delta-green/60"></div>
-      <div className="relative text-center px-6">
-        <h1 className="text-5xl font-bold mb-4 text-white">Premium Car Detailing</h1>
-        <p className="text-xl mb-8 max-w-xl mx-auto text-white">
-          Exceptional care for your vehicle inside and out — experience the Delta Detailing difference today.
-        </p>
-        <a href="#contact" className="bg-delta-green hover:bg-delta-blue text-white px-8 py-3 rounded-lg font-semibold transition">
-          Book Now
-        </a>
-      </div>
+    <section className="bg-secondary text-white py-28 text-center px-4">
+      <h1 className="text-4xl md:text-5xl font-bold max-w-3xl mx-auto">
+        Restore your car’s showroom shine — inside & out — Manawatu-Rangitikei.
+      </h1>
+      <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto">
+        Mobile or at our Marton location. Book online in minutes.
+      </p>
+      <a href="#booking" className="mt-8 inline-block bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700">
+        Book Now
+      </a>
     </section>
   );
 }
