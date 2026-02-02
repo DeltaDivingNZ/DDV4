@@ -36,15 +36,17 @@ export default function BookingForm() {
   };
 
   return (
-    <section className="py-20 px-4 max-w-4xl mx-auto bg-white text-gray-900">
+    <section className="py-20 px-4 max-w-4xl mx-auto bg-[#151b18] text-[#8aa4b2]">
       <h2 className="text-3xl font-bold text-center text-[#538e79] mb-8">Book a Detail</h2>
       <form action="https://usebasin.com/f/7de6409958c9" method="POST" className="space-y-6">
         {/* Name, Email, Phone etc */}
         <div className="grid md:grid-cols-2 gap-4">
-          <div><label>Name</label><input type="text" name="name" required className="border border-[#93afbd] rounded px-3 py-2 w-full focus:ring-[#93afbd]" /></div>
-          <div><label>Email</label><input type="email" name="email" required className="border border-[#93afbd] rounded px-3 py-2 w-full focus:ring-[#93afbd]" /></div>
-          <div><label>Phone</label><input type="tel" name="phone" required className="border border-[#93afbd] rounded px-3 py-2 w-full focus:ring-[#93afbd]" /></div>
-          <div><label>Vehicle Make & Model</label><input type="text" name="vehicle" required className="border border-[#93afbd] rounded px-3 py-2 w-full focus:ring-[#93afbd]" /></div>
+          <div><label>Name</label><input type="text" name="name" required className="text-[#0a0a0a] bg-[#e6e6e6] border border-[#538e79] rounded px-3 py-2 w-full focus:ring-[#93afbd]" /></div>
+          <div><label>Email</label><input type="email" name="email" required className="text-[#0a0a0a] bg-[#e6e6e6] border border-[#538e79] rounded px-3 py-2 w-full focus:ring-[#93afbd]" /></div>
+          <div><label>Phone</label><input type="tel" name="phone" required className="text-[#0a0a0a] bg-[#e6e6e6] border border-[#538e79] rounded px-3 py-2 w-full focus:ring-[#93afbd]" /></div>
+          <div><label>Vehicle Make</label><input type="text" name="vehicle" required className="text-[#0a0a0a] bg-[#e6e6e6] border border-[#538e79] rounded px-3 py-2 w-full focus:ring-[#93afbd]" /></div>
+		  <div><label>Vehicle Model</label><input type="text" name="vehicle" required className="text-[#0a0a0a] bg-[#e6e6e6] border border-[#538e79] rounded px-3 py-2 w-full focus:ring-[#93afbd]" /></div>
+		  <div><label>Vehicle Year</label><input type="text" name="vehicle" required className="text-[#0a0a0a] bg-[#e6e6e6] border border-[#538e79] rounded px-3 py-2 w-full focus:ring-[#93afbd]" /></div>
         </div>
 
         {/* Mobile radio */}
@@ -69,7 +71,7 @@ export default function BookingForm() {
                 : "Select service(s) ▼"}
             </div>
             {showServices && (
-              <div className="absolute z-10 w-full border rounded bg-white mt-1 max-h-60 overflow-y-auto shadow-lg p-2">
+              <div className="absolute z-10 w-full border rounded bg-[#151b18] mt-1 max-h-60 overflow-y-auto shadow-lg p-2">
                 {servicesList.map((service) => (
                   <label key={service} className="flex items-center gap-2 mb-2 cursor-pointer text-[#538e79]">
                     <input

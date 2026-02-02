@@ -4,7 +4,7 @@ export default function ContactPage() {
       <h1 className="text-4xl font-bold text-[#538e79] text-center">Contact Us</h1>
 
       <div className="grid md:grid-cols-2 gap-8">
-        <div className="space-y-4 text-gray-900">
+        <div className="space-y-4 text-[#8aa4b2]">
           <p><span className="font-semibold">Chris van Rossum</span> — Company Director</p>
           <p>Phone: <a href="tel:0210629237" className="text-[#538e79] hover:underline">021 0629 237</a></p>
           <p>Email: <a href="mailto:deltadetailingnz@gmail.com" className="text-[#538e79] hover:underline">deltadetailingnz@gmail.com</a></p>
