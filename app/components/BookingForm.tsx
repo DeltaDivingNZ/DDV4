@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 
-export default function BookingPage() {
-  const services = [
+export default function BookingForm() {
+  const servicesList = [
     "Premium Interior Detail",
     "Premium Exterior Detail",
     "Ultimate Interior Detail",
@@ -17,8 +17,9 @@ export default function BookingPage() {
 
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const [mobileRequired, setMobileRequired] = useState<string>("");
+  const [showServices, setShowServices] = useState<boolean>(false);
 
-  const handleCheckboxChange = (service: string) => {
+  const toggleService = (service: string) => {
     setSelectedServices((prev) =>
       prev.includes(service)
         ? prev.filter((s) => s !== service)
@@ -27,25 +28,47 @@ export default function BookingPage() {
   };
 
   return (
-    <section className="max-w-3xl mx-auto p-6 bg-[#1c1c1c] text-white rounded-lg shadow-lg mt-12">
-      <h1 className="text-3xl font-bold mb-6 text-[#538e79] text-center">Book a Detail</h1>
-      <form action="https://usebasin.com/f/7de6409958c9" method="POST" className="space-y-4">
+    <section className="bg-[#1c1c1c] p-6 rounded-lg shadow-lg">
+      <h2 className="text-3xl font-bold text-[#538e79] mb-6 text-center">
+        Book a Detail
+      </h2>
+
+      <form
+        action="https://usebasin.com/f/7de6409958c9"
+        method="POST"
+        className="space-y-4"
+      >
         {/* Name */}
         <div>
           <label className="block mb-1">Name</label>
-          <input type="text" name="name" required className="w-full p-2 rounded text-black" />
+          <input
+            type="text"
+            name="name"
+            required
+            className="w-full p-2 rounded text-black"
+          />
         </div>
 
         {/* Email */}
         <div>
           <label className="block mb-1">Email</label>
-          <input type="email" name="email" required className="w-full p-2 rounded text-black" />
+          <input
+            type="email"
+            name="email"
+            required
+            className="w-full p-2 rounded text-black"
+          />
         </div>
 
         {/* Phone */}
         <div>
           <label className="block mb-1">Phone</label>
-          <input type="tel" name="phone" required className="w-full p-2 rounded text-black" />
+          <input
+            type="tel"
+            name="phone"
+            required
+            className="w-full p-2 rounded text-black"
+          />
         </div>
 
         {/* Vehicle Info */}
@@ -89,35 +112,36 @@ export default function BookingPage() {
           </div>
         </div>
 
-        {/* Multi-select services */}
-        <div>
+        {/* Services Multi-Select */}
+        <div className="relative">
           <label className="block mb-1 font-semibold">Select Service(s)</label>
-          <div className="relative">
-            <div
-              className="border rounded px-3 py-2 cursor-pointer"
-              onClick={() => setShowServices(!showServices)}
-            >
-              {selectedServices.length > 0
-                ? selectedServices.join(", ")
-                : "Select service(s) ▼"}
-            </div>
-            {showServices && (
-              <div className="absolute z-10 w-full border rounded bg-[#151b18] mt-1 max-h-60 overflow-y-auto shadow-lg p-2">
-                {servicesList.map((service) => (
-                  <label key={service} className="flex items-center gap-2 mb-2 cursor-pointer text-[#538e79]">
-                    <input
-                      type="checkbox"
-                      name="services"
-                      value={service}
-                      checked={selectedServices.includes(service)}
-                      onChange={() => toggleService(service)}
-                    />
-                    {service}
-                  </label>
-                ))}
-              </div>
-            )}
+          <div
+            className="border rounded px-3 py-2 cursor-pointer bg-[#151b18] text-[#538e79]"
+            onClick={() => setShowServices(!showServices)}
+          >
+            {selectedServices.length > 0
+              ? selectedServices.join(", ")
+              : "Select service(s) ▼"}
           </div>
+          {showServices && (
+            <div className="absolute z-10 w-full border rounded bg-[#1c1c1c] mt-1 max-h-60 overflow-y-auto shadow-lg p-2">
+              {servicesList.map((service) => (
+                <label
+                  key={service}
+                  className="flex items-center gap-2 mb-2 cursor-pointer text-[#93afbd]"
+                >
+                  <input
+                    type="checkbox"
+                    name="services"
+                    value={service}
+                    checked={selectedServices.includes(service)}
+                    onChange={() => toggleService(service)}
+                  />
+                  {service}
+                </label>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Additional Notes */}
