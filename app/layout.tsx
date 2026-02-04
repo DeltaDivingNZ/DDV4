@@ -2,7 +2,6 @@
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import ChatWidget from "./components/ChatWidget"; // <-- Added chatbot
 import { Playfair_Display, Montserrat } from "next/font/google";
 
 // Configure Google Fonts
@@ -22,17 +21,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${playfair.variable} ${montserrat.variable}`}>
       <body className="font-body bg-[#0b0b0b] text-white">
-        {/* Navbar */}
         <Navbar />
-
-        {/* Main content */}
         <main className="pt-20">{children}</main>
-
-        {/* Footer */}
         <Footer />
-
-        {/* Chat widget added here so it appears on every page */}
-        <ChatWidget />
       </body>
     </html>
   );
