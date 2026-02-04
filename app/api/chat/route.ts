@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   try {
     const { message } = await req.json();
-
     if (!message || message.trim() === "") {
       return NextResponse.json({ reply: "Please send a message." });
     }
@@ -15,7 +14,7 @@ export async function POST(req: Request) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "gpt-4o-mini",
+        model: "gpt-3.5-turbo",
         messages: [
           {
             role: "system",
@@ -34,7 +33,7 @@ If asked about Packages, explain the types of packages (Interior, Exterior, Full
 If asked how long a service takes, here is a guide for you. Interior 2-4 hours, Exterior 2-4 hours, Cut & Polish 3-6 hours, paint correction 5-8 hours, Ceramic Coating 6-10 hours, headlight restoration 1 hour, engine bay detail 1 hour.
 Never make up prices, always suggest getting a quote if unsure.
 Keep answers short, mobile-friendly, and professional.
-`,
+          `,
           },
           { role: "user", content: message },
         ],
@@ -43,27 +42,20 @@ Keep answers short, mobile-friendly, and professional.
     });
 
     const data = await response.json();
+    console.log("OpenAI status:", response.status, "body:", data);
 
-    // If OpenAI returned an error, forward it
-    if (response.status !== 200) {
-      console.error("OpenAI API error:", data);
+    if (!data.choices || data.choices.length === 0) {
       return NextResponse.json({
-        reply: "Sorry, there was an issue connecting to the AI. Please try again later.",
+        reply: "Sorry, the AI didn’t return a response. Check console logs.",
       });
     }
 
-    const reply = data.choices?.[0]?.message?.content;
-    if (!reply) {
-      return NextResponse.json({
-        reply: "Sorry, I didn’t catch that. Could you try rephrasing?",
-      });
-    }
-
+    const reply = data.choices[0].message.content;
     return NextResponse.json({ reply });
   } catch (err) {
     console.error("API route error:", err);
     return NextResponse.json({
-      reply: "Sorry, something went wrong. Please try again later.",
+      reply: "Sorry, something went wrong. Check server logs.",
     });
   }
 }
