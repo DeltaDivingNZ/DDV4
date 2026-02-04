@@ -1,28 +1,29 @@
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
-  const { message } = await req.json();
+  try {
+    const { message } = await req.json();
 
-  if (!message) {
-    return NextResponse.json({ reply: "Please send a message." });
-  }
+    if (!message || message.trim() === "") {
+      return NextResponse.json({ reply: "Please send a message." });
+    }
 
-  const response = await fetch("https://api.openai.com/v1/chat/completions", {
-  method: "POST",
-  headers: {
-    "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({
-    model: "gpt-4o-mini",
-    messages: [
-      {
-        role: "system",
-        content: `
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        model: "gpt-4o-mini",
+        messages: [
+          {
+            role: "system",
+            content: `
 You are the virtual assistant for Delta Detailing, NZ. 
 Answer customer questions about car detailing services, packages, and pricing in a friendly, clear, Kiwi tone. 
 If asked about Pricing, give general ranges based on service type and vehicle size. 
-Premium interior typically ranges from between $89-$149 based on vehicle size
+Premium interior typically ranges from $89-$149 based on vehicle size
 Ultimate Interior typically ranges from $179-$249 based on vehicle size
 Premium exterior typically ranges from $99-$179 based on vehicle size
 Ultimate exterior typically ranges from $119-$199 based on vehicle size
@@ -33,17 +34,36 @@ If asked about Packages, explain the types of packages (Interior, Exterior, Full
 If asked how long a service takes, here is a guide for you. Interior 2-4 hours, Exterior 2-4 hours, Cut & Polish 3-6 hours, paint correction 5-8 hours, Ceramic Coating 6-10 hours, headlight restoration 1 hour, engine bay detail 1 hour.
 Never make up prices, always suggest getting a quote if unsure.
 Keep answers short, mobile-friendly, and professional.
-`
-      },
-      { role: "user", content: message }
-    ],
-    temperature: 0.7
-  }),
-});
+`,
+          },
+          { role: "user", content: message },
+        ],
+        temperature: 0.7,
+      }),
+    });
 
+    const data = await response.json();
 
-  const data = await response.json();
-  const reply = data.choices?.[0]?.message?.content || "Sorry, I didn’t catch that.";
+    // If OpenAI returned an error, forward it
+    if (response.status !== 200) {
+      console.error("OpenAI API error:", data);
+      return NextResponse.json({
+        reply: "Sorry, there was an issue connecting to the AI. Please try again later.",
+      });
+    }
 
-  return NextResponse.json({ reply });
+    const reply = data.choices?.[0]?.message?.content;
+    if (!reply) {
+      return NextResponse.json({
+        reply: "Sorry, I didn’t catch that. Could you try rephrasing?",
+      });
+    }
+
+    return NextResponse.json({ reply });
+  } catch (err) {
+    console.error("API route error:", err);
+    return NextResponse.json({
+      reply: "Sorry, something went wrong. Please try again later.",
+    });
+  }
 }
