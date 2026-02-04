@@ -2,7 +2,7 @@
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import ChatWidget from "../components/ChatWidget"; // <-- Added chatbot
+import ChatWidget from "./components/ChatWidget"; // <-- Added chatbot
 import { Playfair_Display, Montserrat } from "next/font/google";
 
 // Configure Google Fonts
