@@ -1,6 +1,8 @@
-// app/components/ServiceCard.tsx
+"use client"; // <-- make this a Client Component
+
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 interface Props {
   title: string;
@@ -19,6 +21,13 @@ export default function ServiceCard({
   anchor,
   popular = false,
 }: Props) {
+  const [underlineLoaded, setUnderlineLoaded] = useState(false);
+
+  // Trigger mobile underline slide-in animation after mount
+  useEffect(() => {
+    setUnderlineLoaded(true);
+  }, []);
+
   return (
     <div
       id={anchor}
@@ -37,7 +46,6 @@ export default function ServiceCard({
 
       {/* Main content grows to push button down */}
       <div className="p-8 flex flex-col flex-1 space-y-6">
-
         {/* Title */}
         <h3 className="font-title text-2xl text-primary font-bold">{title}</h3>
 
@@ -46,7 +54,13 @@ export default function ServiceCard({
           {prices.map((p) => (
             <p
               key={p.size}
-              className="relative group-hover:after:scale-x-100 after:content-[''] after:block after:h-[2px] after:bg-primary after:scale-x-0 after:origin-left after:transition-transform after:duration-300"
+              className={`
+                relative
+                after:content-[''] after:block after:h-[2px] after:bg-primary 
+                after:origin-left after:transition-transform after:duration-300
+                sm:after:scale-x-0 sm:group-hover:after:scale-x-100
+                ${underlineLoaded ? "after:translate-x-0 after:scale-x-100" : "after:-translate-x-full after:scale-x-100"}
+              `}
             >
               <strong>{p.size}:</strong> {p.price}
             </p>
