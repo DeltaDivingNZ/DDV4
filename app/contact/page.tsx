@@ -1,17 +1,45 @@
+"use client";
+
 export default function ContactPage() {
   return (
-    <section className="max-w-4xl mx-auto px-4 py-20 space-y-12">
-      <h1 className="text-4xl font-bold text-[#538e79] text-center">Contact Us</h1>
+    <section className="max-w-4xl mx-auto px-4 py-20 space-y-12 font-montserrat">
+      <h1 className="text-4xl font-bold text-[#538e79] text-center font-playfair">
+        Contact Us
+      </h1>
 
       <div className="grid md:grid-cols-2 gap-8">
+
+        {/* Contact Info */}
         <div className="space-y-4 text-[#8aa4b2]">
-          <p><span className="font-semibold">Chris van Rossum</span> — Company Director</p>
-          <p>Phone: <a href="tel:0210629237" className="text-[#538e79] hover:underline">021 0629 237</a></p>
-          <p>Email: <a href="mailto:deltadetailingnz@gmail.com" className="text-[#538e79] hover:underline">deltadetailingnz@gmail.com</a></p>
-          <p>Facebook: <a href="https://www.facebook.com/deltadetailingnz" target="_blank" className="text-[#538e79] hover:underline">Facebook.com/deltadetailingnz</a></p>
+          <p>
+            <span className="font-semibold">Chris van Rossum</span> — Company Director
+          </p>
+          <p>
+            Phone:{" "}
+            <a href="tel:0210629237" className="text-[#538e79] hover:underline">
+              021 0629 237
+            </a>
+          </p>
+          <p>
+            Email:{" "}
+            <a href="mailto:deltadetailingnz@gmail.com" className="text-[#538e79] hover:underline">
+              deltadetailingnz@gmail.com
+            </a>
+          </p>
+          <p>
+            Facebook:{" "}
+            <a
+              href="https://www.facebook.com/deltadetailingnz"
+              target="_blank"
+              className="text-[#538e79] hover:underline"
+            >
+              Facebook.com/deltadetailingnz
+            </a>
+          </p>
           <p>Address: 12 Kereru Court, Marton 4710</p>
         </div>
 
+        {/* Google Map */}
         <div className="w-full h-80">
           <iframe
             title="Delta Detailing Location"
@@ -23,6 +51,7 @@ export default function ContactPage() {
             loading="lazy"
           ></iframe>
         </div>
+
       </div>
     </section>
   );

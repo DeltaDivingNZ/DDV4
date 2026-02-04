@@ -1,3 +1,4 @@
+// app/components/ServiceCard.tsx
 import Image from "next/image";
 import Link from "next/link";
 
@@ -7,6 +8,7 @@ interface Props {
   prices: { size: string; price: string }[];
   features: string[];
   anchor?: string;
+  popular?: boolean; // Optional badge
 }
 
 export default function ServiceCard({
@@ -15,54 +17,64 @@ export default function ServiceCard({
   prices,
   features,
   anchor,
+  popular = false,
 }: Props) {
   return (
     <div
       id={anchor}
-      className="bg-[#141414] rounded-2xl overflow-hidden shadow-lg"
+      className="bg-[#141414] rounded-2xl overflow-hidden shadow-lg group relative flex flex-col"
     >
-      {/* IMAGE */}
+      {popular && (
+        <span className="absolute top-4 right-4 bg-primary text-black font-bold px-3 py-1 rounded-full text-sm z-10">
+          Most Popular
+        </span>
+      )}
+
       <div className="relative h-64">
-        <Image
-          src={image}
-          alt={title}
-          fill
-          className="object-cover"
-        />
+        <Image src={image} alt={title} fill className="object-cover" />
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
-      {/* CONTENT */}
-      <div className="p-8 space-y-6">
-        <h3 className="text-2xl font-bold text-[#538e79]">{title}</h3>
+      {/* Main content grows to push button down */}
+      <div className="p-8 flex flex-col flex-1 space-y-6">
 
-        {/* PRICES - 2x2 grid */}
-        <div className="grid grid-cols-2 gap-4 text-sm text-[#d0d0d0] mb-4">
+        {/* Title */}
+        <h3 className="font-title text-2xl text-primary font-bold">{title}</h3>
+
+        {/* Prices */}
+        <div className="grid grid-cols-2 gap-2 text-sm font-body text-[#d0d0d0]">
           {prices.map((p) => (
-            <div
+            <p
               key={p.size}
-              className="flex justify-between border-b border-[#2c2c2c] pb-1"
+              className="relative group-hover:after:scale-x-100 after:content-[''] after:block after:h-[2px] after:bg-primary after:scale-x-0 after:origin-left after:transition-transform after:duration-300"
             >
-              <span>{p.size}</span>
-              <span className="font-semibold">{p.price}</span>
-            </div>
+              <strong>{p.size}:</strong> {p.price}
+            </p>
           ))}
         </div>
 
-        {/* FEATURES */}
-        <ul className="list-disc list-inside text-[#bfbfbf] space-y-1">
-          {features.map((f) => (
-            <li key={f}>{f}</li>
+        {/* Features */}
+        <ul className="list-disc list-inside text-[#bfbfbf] space-y-1 font-body">
+          {features.map((f, idx) => (
+            <li
+              key={f}
+              className="opacity-100 transition-opacity duration-300"
+              style={{ transitionDelay: `${idx * 50}ms` }}
+            >
+              {f}
+            </li>
           ))}
         </ul>
 
-        {/* BOOK BUTTON */}
-        <Link
-          href="/booking"
-          className="inline-block mt-4 bg-[#538e79] hover:bg-[#437564] text-black font-semibold px-6 py-3 rounded-lg transition"
-        >
-          Book this service
-        </Link>
+        {/* Button now always at bottom */}
+        <div className="mt-auto">
+          <Link
+            href="/booking"
+            className="inline-block bg-primary hover:bg-[#437564] text-black font-semibold px-6 py-3 rounded-lg transition"
+          >
+            Book this service
+          </Link>
+        </div>
       </div>
     </div>
   );

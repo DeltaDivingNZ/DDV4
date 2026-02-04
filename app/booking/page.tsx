@@ -1,18 +1,43 @@
+"use client";
+
 import BookingForm from "../components/BookingForm";
 import Contact from "../components/Contact";
+import Image from "next/image";
 
 export default function BookingPage() {
   return (
-    <section className="bg-[#0b0b0b] text-white min-h-screen">
-      <div className="max-w-7xl mx-auto px-6 py-24 lg:flex lg:space-x-12 space-y-12 lg:space-y-0">
+    <section className="relative w-full min-h-screen">
 
-        {/* CONTACT DETAILS - LEFT COLUMN */}
-        <div className="lg:w-1/2 space-y-8">
+      {/* HERO BACKGROUND IMAGE */}
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src="/services/interior-ultimate.jpg"
+          alt="Hero Background"
+          fill
+          className="object-cover"
+          priority
+        />
+        {/* Dark overlay for readability */}
+        <div className="absolute inset-0 bg-black/60" />
+      </div>
+
+      {/* PAGE TITLE */}
+      <div className="max-w-7xl mx-auto px-6 pt-24 text-center">
+        <h1 className="text-4xl md:text-5xl font-bold text-[#538e79]">
+          Talk To The Team!
+        </h1>
+      </div>
+
+      {/* CONTACT & BOOKING FORM CONTAINER */}
+      <div className="max-w-7xl mx-auto px-6 py-16 lg:flex lg:space-x-12 space-y-12 lg:space-y-0 items-start">
+
+        {/* CONTACT INFO */}
+        <div className="lg:w-1/2 bg-[#1c1c1c] p-8 rounded-xl shadow-lg self-start space-y-8">
           <Contact />
         </div>
 
-        {/* BOOKING FORM - RIGHT COLUMN */}
-        <div className="lg:w-1/2 space-y-8">
+        {/* BOOKING FORM */}
+        <div className="lg:w-1/2 bg-[#1c1c1c] p-8 rounded-xl shadow-lg space-y-8">
           <BookingForm />
         </div>
       </div>

@@ -2,12 +2,12 @@ import ServiceCard from "../components/ServiceCard";
 
 export default function CeramicCoatingPage() {
   return (
-    <section className="bg-[#0b0b0b] text-white">
+    <section className="bg-[#0b0b0b] text-white font-body">
       <div className="max-w-7xl mx-auto px-6 py-24 space-y-24">
 
         {/* PAGE TITLE */}
         <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#538e79] mb-6">
+          <h1 className="font-title text-4xl md:text-5xl text-[#538e79] mb-6">
             Ceramic Coating
           </h1>
           <p className="text-[#cfcfcf] text-lg">
@@ -61,15 +61,26 @@ export default function CeramicCoatingPage() {
 
         {/* VEHICLE SIZE GUIDE */}
         <div className="bg-[#141414] rounded-2xl p-10">
-          <h3 className="text-2xl font-bold text-[#538e79] mb-6">
+          <h3 className="font-title text-2xl text-[#538e79] mb-6">
             Vehicle Size Guide
           </h3>
-          <ul className="grid md:grid-cols-2 gap-4 text-[#d0d0d0]">
-            <li><strong>Small:</strong> Hatchback</li>
-            <li><strong>Medium:</strong> Sedan, Station Wagon</li>
-            <li><strong>Large:</strong> Wagon, 5-Seater SUV</li>
-            <li><strong>XL:</strong> Van, Ute, 7-Seater SUV</li>
-          </ul>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              { size: "Small", desc: "Hatchback" },
+              { size: "Medium", desc: "Sedan, Station Wagon" },
+              { size: "Large", desc: "Wagon, 5-Seater SUV" },
+              { size: "XL", desc: "Van, Ute, 7-Seater SUV" },
+            ].map((v) => (
+              <div
+                key={v.size}
+                className="flex flex-col justify-center p-6 bg-[#1e1e1e] rounded-xl border-b-2 border-[#538e79] hover:bg-[#2a2a2a] transition"
+              >
+                <span className="text-[#538e79] font-title text-lg mb-1">{v.size}</span>
+                <span className="text-[#d0d0d0] font-body">{v.desc}</span>
+              </div>
+            ))}
+          </div>
         </div>
 
       </div>

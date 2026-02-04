@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import TestimonialsSlider from "../components/TestimonialsSlider";
 
 // FAQ data
 const faqs = [
@@ -42,47 +43,39 @@ const faqs = [
   }
 ];
 
-// Testimonials
-const testimonials = [
-  { name: "John D.", location: "Marton", comment: "Never seen my car look like this before.. Top work Chris." },
-  { name: "Sarah W.", location: "Feilding", comment: "Great communication and extremely pleasant to deal with." },
-  { name: "Mike T.", location: "Sanson", comment: "Chris went over and beyond to ensure our needs were met when we placed tight time pressures on him! Thanks again." },
-  { name: "Emma P.", location: "Bulls", comment: "We have a bunch of cars that Chris details on a regular basis for us. Always a stellar job." },
-  { name: "Tom R.", location: "Palmerston North", comment: "I wouldn’t take my car anywhere else." },
-];
-
 export default function AboutPage() {
   const [activeFAQ, setActiveFAQ] = useState<number | null>(null);
-  const [testimonialIndex, setTestimonialIndex] = useState(0);
-  const [fade, setFade] = useState(true);
-
-  // Auto-advance testimonials every 5 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setFade(false);
-      setTimeout(() => {
-        setTestimonialIndex((testimonialIndex + 1) % testimonials.length);
-        setFade(true);
-      }, 300);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [testimonialIndex]);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-20 space-y-16 text-[#d0d0d0]">
+    <div className="max-w-6xl mx-auto px-4 py-20 space-y-16 font-montserrat text-[#d0d0d0]">
+
       {/* About Section */}
       <section className="space-y-6">
-        <h1 className="text-4xl font-bold text-[#538e79] text-center">About Delta Detailing</h1>
-        <p>Delta Detailing is the premium choice for discerning vehicle owners across the Manawatū–Rangitīkei region. We specialise in delivering an elevated standard of automotive care — the kind typically reserved for luxury marques and prestige collections.</p>
-        <p>Passion fuels everything we do. In fact, I’ll admit it: I probably care about your car more than you do. That devotion is reflected in the precision, finesse, and uncompromising attention to detail infused into every service.</p>
-        <p>With over 10 years of professional detailing experience, Delta Detailing blends elite grade products with internationally recognised techniques to create a finish that is not only immaculate, but enduring. Every surface, contour, and material is treated with the respect it deserves — ensuring your vehicle presents at its absolute best, inside and out.</p>
-        <p>For your convenience, our mobile detailing studio brings this premium experience directly to you. Whether at your residence or workplace, we deliver luxury level results without disrupting your schedule.</p>
-        <p>Delta Detailing isn’t just a service — it’s a standard. A commitment to craftsmanship. And a promise that your vehicle will be cared for at a level that exceeds expectation.</p>
+        <h1 className="text-4xl md:text-5xl font-bold font-playfair text-[#538e79] text-center">
+          About Delta Detailing
+        </h1>
+        <p>
+          Delta Detailing is the premium choice for discerning vehicle owners across the Manawatū–Rangitīkei region. We specialise in delivering an elevated standard of automotive care — the kind typically reserved for luxury marques and prestige collections.
+        </p>
+        <p>
+          Passion fuels everything we do. In fact, I’ll admit it: I probably care about your car more than you do. That devotion is reflected in the precision, finesse, and uncompromising attention to detail infused into every service.
+        </p>
+        <p>
+          With over 10 years of professional detailing experience, Delta Detailing blends elite grade products with internationally recognised techniques to create a finish that is not only immaculate, but enduring. Every surface, contour, and material is treated with the respect it deserves — ensuring your vehicle presents at its absolute best, inside and out.
+        </p>
+        <p>
+          For your convenience, our mobile detailing studio brings this premium experience directly to you. Whether at your residence or workplace, we deliver luxury level results without disrupting your schedule.
+        </p>
+        <p>
+          Delta Detailing isn’t just a service — it’s a standard. A commitment to craftsmanship. And a promise that your vehicle will be cared for at a level that exceeds expectation.
+        </p>
       </section>
 
       {/* FAQ Section */}
       <section className="space-y-6">
-        <h2 className="text-3xl font-bold text-[#538e79] text-center">FAQ</h2>
+        <h2 className="text-3xl md:text-4xl font-bold font-playfair text-[#538e79] text-center">
+          FAQ
+        </h2>
         <div className="space-y-4 max-w-3xl mx-auto">
           {faqs.map((faq, i) => (
             <div key={i} className="border-b border-[#333]">
@@ -106,43 +99,8 @@ export default function AboutPage() {
       </section>
 
       {/* Testimonials */}
-      <section className="space-y-6">
-        <h2 className="text-3xl font-bold text-[#538e79] text-center">What Our Customers Say</h2>
-        <div className="max-w-3xl mx-auto text-center space-y-4">
-          <p className={`text-lg transition-opacity duration-300 ${fade ? "opacity-100" : "opacity-0"}`}>
-            "{testimonials[testimonialIndex].comment}"
-          </p>
-          <p className={`font-semibold text-[#538e79] transition-opacity duration-300 ${fade ? "opacity-100" : "opacity-0"}`}>
-            {testimonials[testimonialIndex].name} — {testimonials[testimonialIndex].location}
-          </p>
-          <div className="flex justify-center gap-6 mt-2">
-            <button
-              onClick={() => {
-                setFade(false);
-                setTimeout(() => {
-                  setTestimonialIndex((testimonialIndex - 1 + testimonials.length) % testimonials.length);
-                  setFade(true);
-                }, 300);
-              }}
-              className="text-3xl font-bold text-[#538e79] hover:text-[#437564]"
-            >
-              ‹
-            </button>
-            <button
-              onClick={() => {
-                setFade(false);
-                setTimeout(() => {
-                  setTestimonialIndex((testimonialIndex + 1) % testimonials.length);
-                  setFade(true);
-                }, 300);
-              }}
-              className="text-3xl font-bold text-[#538e79] hover:text-[#437564]"
-            >
-              ›
-            </button>
-          </div>
-        </div>
-      </section>
+      <TestimonialsSlider />
+
     </div>
   );
 }

@@ -1,13 +1,13 @@
 export default function WhyChoose() {
   return (
-    <section className="bg-[#111]">
-      <h2 className="text-4xl font-bold text-center text-[#538e79] mb-16">
+    <section className="bg-[#111] font-montserrat">
+      <h2 className="text-4xl font-bold text-center text-[#538e79] mb-16 font-playfair">
         Why Choose Delta Detailing?
       </h2>
 
       <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-12">
-        <div className="bg-[#161616] p-8 rounded-xl hover:translate-y-[-4px] transition">
-          <h3 className="text-2xl font-semibold mb-4">
+        <div className="bg-[#161616] p-8 rounded-xl hover:-translate-y-1 transition">
+          <h3 className="text-2xl font-semibold mb-4 font-playfair">
             Premium Results, Every Time
           </h3>
           <p className="text-[#cfcfcf] leading-relaxed">
@@ -17,8 +17,8 @@ export default function WhyChoose() {
           </p>
         </div>
 
-        <div className="bg-[#161616] p-8 rounded-xl hover:translate-y-[-4px] transition">
-          <h3 className="text-2xl font-semibold mb-4">
+        <div className="bg-[#161616] p-8 rounded-xl hover:-translate-y-1 transition">
+          <h3 className="text-2xl font-semibold mb-4 font-playfair">
             Detail-Oriented Craftsmanship
           </h3>
           <p className="text-[#cfcfcf] leading-relaxed">
@@ -28,8 +28,8 @@ export default function WhyChoose() {
           </p>
         </div>
 
-        <div className="bg-[#161616] p-8 rounded-xl hover:translate-y-[-4px] transition">
-          <h3 className="text-2xl font-semibold mb-4">
+        <div className="bg-[#161616] p-8 rounded-xl hover:-translate-y-1 transition">
+          <h3 className="text-2xl font-semibold mb-4 font-playfair">
             Mobile Convenience That Fits Your Schedule
           </h3>
           <p className="text-[#cfcfcf] leading-relaxed">

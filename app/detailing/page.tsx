@@ -1,13 +1,14 @@
+// app/pages/detailing.tsx
 import ServiceCard from "../components/ServiceCard";
 
 export default function DetailingPage() {
   return (
-    <section className="bg-[#0b0b0b] text-white">
+    <section className="bg-[#0b0b0b] text-white font-body">
       <div className="max-w-7xl mx-auto px-6 py-24 space-y-32">
 
         {/* EXTERIOR */}
         <div id="exterior">
-          <h1 className="text-4xl md:text-5xl font-bold text-center text-[#538e79] mb-16">
+          <h1 className="font-title text-5xl md:text-6xl text-center text-primary mb-16">
             Exterior Detail Packages
           </h1>
 
@@ -34,6 +35,7 @@ export default function DetailingPage() {
             <ServiceCard
               title="Ultimate Exterior Detail"
               image="/services/exterior-ultimate.jpg"
+              popular
               prices={[
                 { size: "Small", price: "$119" },
                 { size: "Medium", price: "$149" },
@@ -56,7 +58,7 @@ export default function DetailingPage() {
 
         {/* INTERIOR */}
         <div id="interior">
-          <h2 className="text-4xl font-bold text-center text-[#538e79] mb-16">
+          <h2 className="font-title text-5xl md:text-6xl text-center text-primary mb-16">
             Interior Detail Packages
           </h2>
 
@@ -82,6 +84,7 @@ export default function DetailingPage() {
             <ServiceCard
               title="Ultimate Interior Detail"
               image="/services/interior-ultimate.jpg"
+              popular
               prices={[
                 { size: "Small", price: "$179" },
                 { size: "Medium", price: "$199" },
@@ -103,19 +106,19 @@ export default function DetailingPage() {
 
         {/* VEHICLE SIZE GUIDE */}
         <div className="bg-[#141414] rounded-2xl p-10">
-          <h3 className="text-2xl font-bold text-[#538e79] mb-6">
+          <h3 className="font-title text-2xl text-primary mb-6">
             Vehicle Size Guide
           </h3>
-          <ul className="grid md:grid-cols-2 gap-4 text-[#d0d0d0]">
-            <li><strong>Small:</strong> Hatchback</li>
-            <li><strong>Medium:</strong> Sedan, Station Wagon</li>
-            <li><strong>Large:</strong> Wagon, 5-Seater SUV</li>
-            <li><strong>XL:</strong> Van, Ute, 7-Seater SUV</li>
+          <ul className="grid md:grid-cols-2 gap-4 text-[#d0d0d0] font-body">
+            <li className="border-b border-[#333] pb-2"><strong>Small:</strong> Hatchback</li>
+            <li className="border-b border-[#333] pb-2"><strong>Medium:</strong> Sedan, Station Wagon</li>
+            <li className="border-b border-[#333] pb-2"><strong>Large:</strong> Wagon, 5-Seater SUV</li>
+            <li className="border-b border-[#333] pb-2"><strong>XL:</strong> Van, Ute, 7-Seater SUV</li>
           </ul>
         </div>
 
         {/* DISCLAIMER */}
-        <p className="text-sm text-[#a0a0a0] text-center max-w-4xl mx-auto">
+        <p className="text-sm text-[#a0a0a0] text-center max-w-4xl mx-auto font-body">
           Additional charges may apply for excessive pet hair, heavy soiling, or rubbish removal.
           A biohazard fee of $50 applies to bodily fluids.
         </p>

@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -36,8 +38,8 @@ const services = [
 
 export default function ServiceGrid() {
   return (
-    <section className="bg-[#0e0e0e] py-24">
-      <h2 className="text-4xl font-bold text-center text-[#538e79] mb-16">
+    <section className="bg-[#0e0e0e] py-24 font-montserrat">
+      <h2 className="text-4xl font-bold text-center text-[#538e79] mb-16 font-playfair">
         Our Services
       </h2>
 
@@ -59,7 +61,7 @@ export default function ServiceGrid() {
             </div>
 
             <div className="p-6 text-center">
-              <h3 className="text-2xl font-semibold text-[#93afbd] group-hover:text-[#538e79] transition">
+              <h3 className="text-2xl font-semibold text-[#93afbd] group-hover:text-[#538e79] transition font-playfair">
                 {service.title}
               </h3>
             </div>
