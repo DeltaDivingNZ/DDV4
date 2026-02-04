@@ -47,11 +47,11 @@ export default function AboutPage() {
   const [activeFAQ, setActiveFAQ] = useState<number | null>(null);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-20 space-y-16 font-montserrat text-[#d0d0d0]">
+    <div className="max-w-7xl mx-auto px-6 py-20 space-y-20 font-body text-[#d0d0d0]">
 
       {/* About Section */}
-      <section className="space-y-6">
-        <h1 className="text-4xl md:text-5xl font-bold font-playfair text-[#538e79] text-center">
+      <section className="space-y-8">
+        <h1 className="font-title text-5xl md:text-6xl text-center text-primary">
           About Delta Detailing
         </h1>
         <p>
@@ -72,11 +72,11 @@ export default function AboutPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="space-y-6">
-        <h2 className="text-3xl md:text-4xl font-bold font-playfair text-[#538e79] text-center">
+      <section className="space-y-8">
+        <h2 className="font-title text-4xl md:text-5xl text-center text-primary">
           FAQ
         </h2>
-        <div className="space-y-4 max-w-3xl mx-auto">
+        <div className="space-y-6 max-w-3xl mx-auto">
           {faqs.map((faq, i) => (
             <div key={i} className="border-b border-[#333]">
               <button
