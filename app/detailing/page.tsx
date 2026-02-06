@@ -1,5 +1,28 @@
 // app/pages/detailing.tsx
+import type { Metadata } from "next";
 import ServiceCard from "../components/ServiceCard";
+
+export const metadata: Metadata = {
+  title: "Car Detailing Packages | Delta Detailing",
+  description:
+    "Professional interior and exterior car detailing packages in NZ. Premium and ultimate detailing services available.",
+  openGraph: {
+    title: "Car Detailing Packages | Delta Detailing",
+    description:
+      "Premium and ultimate interior & exterior car detailing. Restore your vehicle’s shine.",
+    url: "https://www.deltadetailing.co.nz/detailing",
+    siteName: "Delta Detailing",
+    images: [
+      {
+        url: "https://www.deltadetailing.co.nz/services/exterior-ultimate.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Ultimate Exterior Car Detailing by Delta Detailing",
+      },
+    ],
+    type: "website",
+  },
+};
 
 export default function DetailingPage() {
   return (
