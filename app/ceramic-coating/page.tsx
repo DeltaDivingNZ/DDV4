@@ -1,4 +1,28 @@
+import type { Metadata } from "next";
 import ServiceCard from "../components/ServiceCard";
+
+// --- Open Graph / Page Metadata ---
+export const metadata: Metadata = {
+  title: "Ceramic Coating Packages | Delta Detailing",
+  description:
+    "Ultimate protection and extreme gloss for your vehicle with professional ceramic coating. Single & multi-layer options available.",
+  openGraph: {
+    title: "Ceramic Coating Packages | Delta Detailing",
+    description:
+      "Protect and enhance your car's paint with premium ceramic coatings. Hydrophobic, UV resistant, and long-lasting.",
+    url: "https://www.deltadetailing.co.nz/ceramic-coating",
+    siteName: "Delta Detailing",
+    images: [
+      {
+        url: "https://www.deltadetailing.co.nz/services/ceramic-1.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Single Layer Ceramic Coating by Delta Detailing",
+      },
+    ],
+    type: "website",
+  },
+};
 
 export default function CeramicCoatingPage() {
   return (
