@@ -1,4 +1,28 @@
+import type { Metadata } from "next";
 import ServiceCard from "../components/ServiceCard";
+
+// --- Open Graph / Page Metadata ---
+export const metadata: Metadata = {
+  title: "Additional Services | Delta Detailing",
+  description:
+    "Enhance your vehicle with specialized services beyond standard detailing, including pre-sale preparation, headlight restoration, and engine bay detailing.",
+  openGraph: {
+    title: "Additional Services | Delta Detailing",
+    description:
+      "Specialized detailing services to protect, restore, and enhance your vehicle. Maximise appearance and resale value.",
+    url: "https://www.deltadetailing.co.nz/other-services",
+    siteName: "Delta Detailing",
+    images: [
+      {
+        url: "https://www.deltadetailing.co.nz/services/pre-sale.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Pre-Sale Vehicle Detail by Delta Detailing",
+      },
+    ],
+    type: "website",
+  },
+};
 
 export default function OtherServicesPage() {
   return (

@@ -1,5 +1,28 @@
-// app/pages/paint-correction.tsx
+import type { Metadata } from "next";
 import ServiceCard from "../components/ServiceCard";
+
+// --- Open Graph / Page Metadata ---
+export const metadata: Metadata = {
+  title: "Paint Correction Packages | Delta Detailing",
+  description:
+    "Restore depth, clarity, and gloss by removing swirl marks, oxidation, and imperfections from your vehicle’s paintwork.",
+  openGraph: {
+    title: "Paint Correction Packages | Delta Detailing",
+    description:
+      "Professional paint correction services. Remove scratches, swirls, and oxidation for deep gloss and a showroom finish.",
+    url: "https://www.deltadetailing.co.nz/paint-correction",
+    siteName: "Delta Detailing",
+    images: [
+      {
+        url: "https://www.deltadetailing.co.nz/services/paint-correction-1.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Cut & Polish Paint Correction by Delta Detailing",
+      },
+    ],
+    type: "website",
+  },
+};
 
 export default function PaintCorrectionPage() {
   return (

@@ -1,8 +1,32 @@
-"use client";
-
+import type { Metadata } from "next";
 import BookingForm from "../components/BookingForm";
 import Contact from "../components/Contact";
 import Image from "next/image";
+
+// --- Open Graph / Page Metadata ---
+export const metadata: Metadata = {
+  title: "Book a Detail | Delta Detailing",
+  description:
+    "Schedule your car detailing or send an enquiry. Talk to the team at Delta Detailing to choose the right package for your vehicle.",
+  openGraph: {
+    title: "Book a Detail | Delta Detailing",
+    description:
+      "Reach out today to schedule your detail or submit an enquiry. Delta Detailing provides professional car detailing services across NZ.",
+    url: "https://www.deltadetailing.co.nz/booking",
+    siteName: "Delta Detailing",
+    images: [
+      {
+        url: "https://www.deltadetailing.co.nz/images/booking-bg.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Delta Detailing Booking Page Hero",
+      },
+    ],
+    type: "website",
+  },
+};
+
+"use client";
 
 export default function BookingPage() {
   return (
