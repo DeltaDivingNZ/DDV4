@@ -5,7 +5,7 @@ import ServiceCard from "../components/ServiceCard";
 export const metadata: Metadata = {
   title: "Ceramic Coating Packages | Delta Detailing",
   description:
-    "Ultimate protection and extreme gloss for your vehicle with professional ceramic coating. Single & multi-layer options available.",
+    "Ultimate protection and extreme gloss for your vehicle with professional ceramic coating. 2 year and 5 year options available.",
   openGraph: {
     title: "Ceramic Coating Packages | Delta Detailing",
     description:
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
         url: "https://www.deltadetailing.co.nz/services/ceramic-1.jpg",
         width: 1200,
         height: 630,
-        alt: "Single Layer Ceramic Coating by Delta Detailing",
+        alt: "2 Year Ceramic Coating by Delta Detailing",
       },
     ],
     type: "website",
@@ -44,43 +44,56 @@ export default function CeramicCoatingPage() {
 
           {/* SINGLE LAYER */}
           <ServiceCard
-            title="Single Layer Ceramic Coating"
+            title="Two Year Ceramic Coating"
             image="/services/ceramic-1.jpg"
             prices={[
-              { size: "Small", price: "$599" },
-              { size: "Medium", price: "$649" },
-              { size: "Large", price: "$699" },
-              { size: "XL", price: "$749" },
+              { size: "Small", price: "$649" },
+              { size: "Medium", price: "$699" },
+              { size: "Large", price: "$749" },
+              { size: "XL", price: "$799" },
             ]}
             features={[
               "Professional surface prep",
               "Paint decontamination",
+			  "Paint Enhancement Polish",
               "Premium ceramic coating applied",
               "UV & chemical protection",
               "Hydrophobic effect for easy cleaning",
               "Enhanced deep gloss",
+			  "Up to 2 Years Protection*",
             ]}
           />
 
           {/* MULTI LAYER */}
           <ServiceCard
-            title="Multi-Layer Ceramic Coating"
+            title="Five Year Ceramic Coating"
             image="/services/ceramic-2.jpg"
             prices={[
-              { size: "Small", price: "$699" },
-              { size: "Medium", price: "$749" },
-              { size: "Large", price: "$799" },
-              { size: "XL", price: "$849" },
+              { size: "Small", price: "$949" },
+              { size: "Medium", price: "$999" },
+              { size: "Large", price: "$1049" },
+              { size: "XL", price: "$1099" },
             ]}
             features={[
-              "Full paint correction included",
-              "Multiple layers of ceramic coating",
-              "Ultimate UV & chemical protection",
-              "Hydrophobic effect maximized",
-              "Deep gloss & enhanced reflection",
-              "Long-lasting durability",
+              "Professional surface prep",
+              "Paint decontamination",
+			  "Paint Enhancement Polish",
+              "Premium ceramic coating applied",
+              "UV & chemical protection",
+              "Hydrophobic effect for easy cleaning",
+              "Enhanced deep gloss",
+			  "Up to 5 Years Protection*",
             ]}
           />
+        </div>
+		
+		<div className="text-center max-w-3xl mx-auto">
+          <h1 className="font-title text-4xl md:text-5xl text-[#538e79] mb-6">
+            Protect Your Investment
+          </h1>
+          <p className="text-[#cfcfcf] text-lg">
+            Your ceramic coating is only as good as the care it receives. To keep your coating performing at its best, we recommend a professional Ceramic Coating Maintenance Wash every 6–12 months. This specialised service safely removes embedded contamination, road film, mineral deposits and other build-up that regular washing can leave behind, helping restore the coating's hydrophobic performance, gloss and slick finish.
+          </p>
         </div>
 
         {/* VEHICLE SIZE GUIDE */}
