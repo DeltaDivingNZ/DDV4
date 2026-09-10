@@ -56,7 +56,7 @@ export default function CeramicCoatingPage() {
               "Professional surface prep",
               "Paint decontamination",
 			  "Paint Enhancement Polish",
-              "Premium ceramic coating applied",
+              "CarPro CQuartz UK 3.0 Ceramic Coating applied",
               "UV & chemical protection",
               "Hydrophobic effect for easy cleaning",
               "Enhanced deep gloss",
@@ -78,7 +78,7 @@ export default function CeramicCoatingPage() {
               "Professional surface prep",
               "Paint decontamination",
 			  "Paint Enhancement Polish",
-              "Premium ceramic coating applied",
+              "Gtechniq CSL Ceramic Coating applied",
               "UV & chemical protection",
               "Hydrophobic effect for easy cleaning",
               "Enhanced deep gloss",
@@ -92,7 +92,7 @@ export default function CeramicCoatingPage() {
             Protect Your Investment
           </h1>
           <p className="text-[#cfcfcf] text-lg">
-            Your ceramic coating is only as good as the care it receives. To keep your coating performing at its best, we recommend a professional Ceramic Coating Maintenance Wash every 6–12 months. This specialised service safely removes embedded contamination, road film, mineral deposits and other build-up that regular washing can leave behind, helping restore the coating's hydrophobic performance, gloss and slick finish.
+            *Your ceramic coating is only as good as the care it receives. To keep your coating performing at its best, we recommend a professional Ceramic Coating Maintenance Wash every 6–12 months. This specialised service safely removes embedded contamination, road film, mineral deposits and other build-up that regular washing can leave behind, helping restore the coating's hydrophobic performance, gloss and slick finish. Please contact us for more information on this service.
           </p>
         </div>
 
