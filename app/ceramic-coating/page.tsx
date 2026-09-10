@@ -42,7 +42,7 @@ export default function CeramicCoatingPage() {
         {/* CERAMIC COATING PACKAGES */}
         <div className="grid md:grid-cols-2 gap-12">
 
-          {/* SINGLE LAYER */}
+          {/* CarPro */}
           <ServiceCard
             title="Two Year Ceramic Coating"
             image="/services/ceramic-1.jpg"
@@ -64,10 +64,11 @@ export default function CeramicCoatingPage() {
             ]}
           />
 
-          {/* MULTI LAYER */}
+          {/* Gtechniq */}
           <ServiceCard
             title="Five Year Ceramic Coating"
             image="/services/ceramic-2.jpg"
+			popular
             prices={[
               { size: "Small", price: "$949" },
               { size: "Medium", price: "$999" },
