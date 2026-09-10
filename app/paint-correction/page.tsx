@@ -67,7 +67,7 @@ export default function PaintCorrectionPage() {
 
           {/* 2 STAGE */}
           <ServiceCard
-            title="2 Stage Paint Correction"
+            title="Paint Correction"
             image="/services/paint-correction-2.jpg"
             popular
             prices={[
@@ -96,8 +96,8 @@ export default function PaintCorrectionPage() {
             Take It Further
           </h3>
           <p className="text-[#d0d0d0] text-lg font-body">
-            Add a <strong>professional ceramic coating</strong> for just{" "}
-            <span className="text-[#93afbd] font-semibold">$350</span> and lock in
+            Add a <strong>professional ceramic coating</strong> from just{" "}
+            <span className="text-[#93afbd] font-semibold">$399</span> and lock in
             gloss, protection, and hydrophobic performance for the long term.
           </p>
         </div>
