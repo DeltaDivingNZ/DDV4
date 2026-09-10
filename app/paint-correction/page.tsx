@@ -47,6 +47,7 @@ export default function PaintCorrectionPage() {
           <ServiceCard
             title="Cut & Polish"
             image="/services/paint-correction-1.jpg"
+            popular
             prices={[
               { size: "Small", price: "$249" },
               { size: "Medium", price: "$299" },
@@ -65,11 +66,10 @@ export default function PaintCorrectionPage() {
             ]}
           />
 
-          {/* 2 STAGE */}
+          {/* Paint Correction */}
           <ServiceCard
             title="Paint Correction"
             image="/services/paint-correction-2.jpg"
-            popular
             prices={[
               { size: "Small", price: "$399" },
               { size: "Medium", price: "$449" },
